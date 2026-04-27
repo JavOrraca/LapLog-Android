@@ -4,3 +4,11 @@ build/
 app/build/
 local.properties
 *.iml
+.DS_Store
+
+# Claude Code / Claude Desktop scratch space
+.claude/
+.claudeignore
+.claude.json
+.claude.local.json
+CLAUDE.local.md
