@@ -29,7 +29,7 @@ data class LapLogUiState(
     val currentLapName: String = "",
     val sessionTitle: String = "Grill",
     val pendingStartMs: Long = 0,
-    val history: List<Session> = LapLogSnapshot.seedHistory(),
+    val history: List<Session> = emptyList(),
     val settings: LapLogSettings = LapLogSettings(),
     val activeSheet: ActiveSheet = ActiveSheet.None,
     val selectedSessionId: String? = null,

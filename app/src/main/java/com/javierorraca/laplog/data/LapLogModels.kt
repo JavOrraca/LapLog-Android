@@ -57,53 +57,9 @@ data class LapLogSnapshot(
     val currentLapName: String = "",
     val sessionTitle: String = "Grill",
     val pendingStartMs: Long = 0,
-    val history: List<Session> = seedHistory(),
+    val history: List<Session> = emptyList(),
     val settings: LapLogSettings = LapLogSettings(),
-) {
-    companion object {
-        fun seedHistory(): List<Session> = listOf(
-            Session(
-                title = "Sat cookout",
-                dateEpochMs = dateMs(2026, 4, 19),
-                totalMs = 2_745_000,
-                laps = listOf(
-                    Lap(index = 1, name = "Coals ready", startMs = 0, totalMs = 420_000, durationMs = 420_000),
-                    Lap(index = 2, name = "Ribeye on", startMs = 420_000, totalMs = 1_020_000, durationMs = 600_000),
-                    Lap(index = 3, name = "Ribeye flip", startMs = 1_020_000, totalMs = 1_860_000, durationMs = 840_000),
-                    Lap(index = 4, name = "Ribeye rest", startMs = 1_860_000, totalMs = 2_745_000, durationMs = 885_000),
-                ),
-            ),
-            Session(
-                title = "Weeknight steak",
-                dateEpochMs = dateMs(2026, 4, 16),
-                totalMs = 1_082_000,
-                laps = listOf(
-                    Lap(index = 1, name = "Sear", startMs = 0, totalMs = 180_000, durationMs = 180_000),
-                    Lap(index = 2, name = "Flip", startMs = 180_000, totalMs = 540_000, durationMs = 360_000),
-                    Lap(index = 3, name = "Rest", startMs = 540_000, totalMs = 1_082_000, durationMs = 542_000),
-                ),
-            ),
-            Session(
-                title = "Friends over",
-                dateEpochMs = dateMs(2026, 4, 12),
-                totalMs = 4_210_000,
-                laps = listOf(
-                    Lap(index = 1, name = "Veg on", startMs = 0, totalMs = 600_000, durationMs = 600_000),
-                    Lap(index = 2, name = "Burgers on", startMs = 600_000, totalMs = 1_260_000, durationMs = 660_000),
-                    Lap(index = 3, name = "Burgers flip", startMs = 1_260_000, totalMs = 1_920_000, durationMs = 660_000),
-                    Lap(index = 4, name = "Corn on", startMs = 1_920_000, totalMs = 2_640_000, durationMs = 720_000),
-                    Lap(index = 5, name = "Sausages on", startMs = 2_640_000, totalMs = 3_420_000, durationMs = 780_000),
-                    Lap(index = 6, name = "All plated", startMs = 3_420_000, totalMs = 4_210_000, durationMs = 790_000),
-                ),
-            ),
-        )
-
-        private fun dateMs(year: Int, month: Int, day: Int): Long {
-            @Suppress("DEPRECATION")
-            return Date(year - 1900, month - 1, day).time
-        }
-    }
-}
+)
 
 val quickPicks = listOf(
     "Steak flip",
