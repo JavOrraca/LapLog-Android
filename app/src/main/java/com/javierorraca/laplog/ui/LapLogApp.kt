@@ -292,12 +292,10 @@ private fun TimerArea(state: LapLogUiState) {
 private fun statusText(state: LapLogUiState): String {
     if (state.running) return "RUNNING"
     if (state.elapsedMs == 0L) return "READY"
-    val currentLapMs = state.elapsedMs - (state.laps.lastOrNull()?.totalMs ?: 0)
-    return if (state.laps.isNotEmpty()) {
-        "PAUSED · CURRENT LAP ${formatTime(currentLapMs).uppercase()}"
-    } else {
-        "PAUSED"
-    }
+    if (state.laps.isEmpty()) return "PAUSED"
+    val anchor = if (state.settings.concurrentLaps) state.pendingStartMs else state.laps.last().totalMs
+    val currentLapMs = (state.elapsedMs - anchor).coerceAtLeast(0)
+    return "PAUSED · CURRENT LAP ${formatTime(currentLapMs).uppercase()}"
 }
 
 @Composable
