@@ -11,4 +11,14 @@ local.properties
 .claudeignore
 .claude.json
 .claude.local.json
+CLAUDE.md
 CLAUDE.local.md
+
+# Secrets & signing material
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+secrets.properties
+.env
+.env.*
